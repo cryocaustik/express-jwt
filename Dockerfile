@@ -1,7 +1,7 @@
 FROM node:14
 
 WORKDIR /app
-COPY package*.json .
+COPY package*.json /app/
 COPY .env .env
 
 RUN npm install
