@@ -10,25 +10,32 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const port = process.env.PORT;
-const app_secret = process.env.APP_SECRET;
 
 app.get("/", (req, res) => {
-  let payload = req.body;
-  if (!typeof payload === "object" || Object.keys(payload).length === 0) {
-    res.status(400).send("no payload found");
-  } else {
-    let token = jwt.sign(payload, app_secret);
-    res.send(token);
+  try {
+    let data = req.body;
+    if (!typeof data === "object" || Object.keys(data).length === 0) {
+      res.status(400).send("no payload found");
+    } else {
+      let token = jwt.sign(data.payload, data.secret);
+      res.send(token);
+    }
+  } catch (error) {
+    res.sendStatus(400);
   }
 });
 
 app.post("/", (req, res) => {
-  let payload = req.body;
-  if (!typeof payload === "object" || Object.keys(payload).length === 0) {
-    res.status(400).send("no payload found");
-  } else {
-    let token = jwt.sign(payload, app_secret);
-    res.send(token);
+  try {
+    let data = req.body;
+    if (!typeof data === "object" || Object.keys(data).length === 0) {
+      res.status(400).send("no payload found");
+    } else {
+      let token = jwt.sign(data.payload, data.secret);
+      res.send(token);
+    }
+  } catch (error) {
+    res.sendStatus(400);
   }
 });
 

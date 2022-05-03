@@ -1,9 +1,22 @@
 # express-jwt
 
+signs payload with given secret, returning a JWT
 
-## command 
+## payload requirement
 
+```json
+{
+  "secret": "<secret to sign with>",
+  "payload": "<data to sign>"
+}
 ```
-docker build . -t express-jwt
-docker run -d -p 8000:8000 express-jwt
+
+## setup command 
+
+```sh
+# copy and edit env
+cp .env.example .env 
+
+# run docker container
+docker compose up -d
 ```

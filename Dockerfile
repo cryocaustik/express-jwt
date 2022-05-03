@@ -8,6 +8,7 @@ RUN npm install
 
 COPY src/ .
 
+ENV NODE_ENV=production
 
-EXPOSE 8000
-CMD [ "node", "index.js" ]
+# EXPOSE ${PORT}
+# CMD [ "node", "index.js" ]

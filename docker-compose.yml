@@ -1,0 +1,9 @@
+
+services:
+  app:
+    container_name: express-jwt
+    build: .
+    ports:
+      - ${PORT}:${PORT}
+    command: node index.js
+    restart: unless-stopped
